@@ -1,5 +1,5 @@
 class Piece(object):
-    # Should these enums be in piece?
+    # TODO: Should these enums be in piece?
     WHITE = 0
     BLACK = 1
 
