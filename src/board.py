@@ -32,9 +32,3 @@ class Board:
 
     def is_opponent_piece(self, idx, my_color):
         return True
-
-
-b = Board()
-
-x = b.generate_moves_until_oob_or_hits_piece(0, 8)
-print(x)
