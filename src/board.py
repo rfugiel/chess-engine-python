@@ -29,10 +29,10 @@ class Board:
         # TODO: naming convention - should it be is_oob? oob? should I have not_oob methods for readability?
         return 0 <= idx < 64
 
-    def is_occupied(self, idx):
+    def is_empty(self, idx):
         if self.is_oob(idx):
             raise Exception("Out of bounds")
-        return self.board[idx] is not None
+        return self.board[idx] is None
 
     def is_opponent_piece(self, idx, opponent_idx):
         if self.is_oob(idx):
