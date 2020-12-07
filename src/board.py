@@ -1,11 +1,11 @@
-from piece import Piece
+from src.piece import Piece
 
 def check_oob(func):
     # TODO: if this is a wrapper how do I ensure which argument idx is? keyword?
     pass
 
 class Board:
-    def __init__(self, board):
+    def __init__(self, board=None):
         self.board = board if board else [None for _ in range(64)]
 
     def get_piece_color(self, idx):
@@ -27,7 +27,7 @@ class Board:
     @staticmethod
     def is_oob(idx):
         # TODO: naming convention - should it be is_oob? oob? should I have not_oob methods for readability?
-        return 0 <= idx < 64
+        return idx < 0 or 63 < idx
 
     def is_empty(self, idx):
         if self.is_oob(idx):
