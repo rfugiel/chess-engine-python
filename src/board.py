@@ -6,6 +6,7 @@ def check_oob(func):
 
 class Board:
     def __init__(self, board=None):
+        # TODO: Is it incorrect to assign to None?
         self.board = board if board else [None for _ in range(64)]
 
     def get_piece_color(self, idx):
