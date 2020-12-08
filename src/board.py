@@ -1,4 +1,4 @@
-from src.piece import Piece
+from piece import Piece
 
 def check_oob(func):
     # TODO: if this is a wrapper how do I ensure which argument idx is? keyword?
@@ -9,7 +9,7 @@ class Board:
         # TODO: Is it incorrect to assign to None?
         self.board = board if board else [None for _ in range(64)]
 
-    def get_piece_color(self, idx):
+    def piece_color(self, idx):
         # TODO: Should I make custom exceptions for OOB and Empty?
         if self.is_oob(idx):
             raise Exception("Out of bounds")
@@ -17,7 +17,7 @@ class Board:
             return Exception("Empty square")
         return Piece(self.board[idx]).color
 
-    def get_piece_type(self, idx):
+    def piece_type(self, idx):
         # TODO: should I make check oob a wrapper function since I use it a couple places?
         if self.is_oob(idx):
             raise Exception("Out of Bounds")
@@ -38,4 +38,4 @@ class Board:
     def is_opponent_piece(self, idx, opponent_idx):
         if self.is_oob(idx):
             raise Exception("Out of bounds")
-        return Piece(self.board[idx]).color == Piece(self.board[opponent_idx]).color
+        return Piece(self.board[idx]).color != Piece(self.board[opponent_idx]).color
